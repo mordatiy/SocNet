@@ -1,0 +1,14 @@
+.userPhoto {
+    width: 100px;
+}
+
+.pageNavi {
+    margin: 5px;
+    cursor: pointer;
+}
+.selectedPage {
+    /*margin: 5px;*/
+    /*cursor: pointer;*/
+    color: red;
+    font-width: bold;
+}
