@@ -8,12 +8,15 @@ import {BrowserRouter, Route, Routes, NavLink} from "react-router-dom";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
+import HeaderContainer from "./Components/Header/HeaderContainer";
 
 const App = (props) => {
     //console.log('App')
     return (
         <div className="app-wrapper">
-            <Header/>
+            <HeaderContainer />
+            {/*<Header />*/}
+
             <Navbar/>
             <div className="app-wrapper-content">
                 <Routes basename="/">
