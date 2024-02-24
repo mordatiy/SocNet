@@ -2,9 +2,13 @@ import c from './Dialogs.module.css'
 import DialogsItem from "./DialogsItem/DialogItem";
 import Message from "./Message/Message";
 import {addMessageCreator, updateNewMessageCreator} from "../../redux/dialogs-reducer";
+import { Navigate } from "react-router-dom";
+
+
 
 const Dialogs = (props) => {
-    console.log(props);
+    // console.log(props);
+    // console.log('Dialogs')
 
     let dialogsElements = props.dialogsPage.dialogsData.map( dialog => (<DialogsItem key={dialog.id} id={dialog.id} name={dialog.name}></DialogsItem>));
     let messagesElements = props.dialogsPage.messagesData.map( message => (<Message key={message.id} message={message.message}></Message>));
@@ -18,6 +22,10 @@ const Dialogs = (props) => {
     let onSendMessage = () => {
         props.sendMessage()
     }
+
+    // alert(props.isAuth)
+
+    // if (props.isAuth === false) return <Navigate to="/login/" replace={true} />
 
     return (
         <div>

@@ -7,16 +7,19 @@ let initialState = {
     id: null,
     email: null,
     login: null,
-    isAuth: false,
+    isAuth: true,
 }
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
+
         case SET_USER_DATA:
+            console.log('DSDSD')
             return {
                 ...state,
                 ...action.data,
-                isAuth: true
+                isAuth: (action.data.email !== null) ? true : false,
+                //isAuth: true
             };
 
 
@@ -36,7 +39,9 @@ export const getAuthUserData = () => {
                 if ( response.data.resultCode === 0 ) {
                     let {id, email, login} = response.data.data;
                     dispatch(setAuthUserData(id, email, login));
-                } else {}
+                } else {
+                    dispatch(setAuthUserData(null, null, null));
+                }
             })
     }
 }

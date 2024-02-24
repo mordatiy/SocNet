@@ -29,4 +29,4 @@ let mapStateToProps = (state) => {
 
 // export default HeaderContainer;
 export default connect(mapStateToProps,
-    {setAuthUserData, getAuthUserData})(HeaderContainer);
+    {getAuthUserData, setAuthUserData})(HeaderContainer);

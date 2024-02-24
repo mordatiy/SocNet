@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+import React from "react";
 import './App.css';
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
@@ -9,9 +9,11 @@ import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
+import Login from "./Components/Login/Login";
+import LoginContainer from "./Components/Login/Login";
 
 const App = (props) => {
-    //console.log('App')
+    // console.log('App')
     return (
         <div className="app-wrapper">
             <HeaderContainer />
@@ -25,6 +27,7 @@ const App = (props) => {
                     <Route path="/dialogs/*" element={<DialogsContainer  />} />
                     <Route path="/messages/" element={<Messages />} />
                     <Route path="/users/" element={<UsersContainer />} />
+                    <Route path="/login/" element={<LoginContainer />} />
                 </Routes>
             </div>
         </div>

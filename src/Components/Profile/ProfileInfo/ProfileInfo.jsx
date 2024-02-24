@@ -1,5 +1,8 @@
+import React from "react";
 import c from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
+
 
 const ProfileInfo = (props) => {
     console.log(props.profile);
@@ -10,13 +13,15 @@ const ProfileInfo = (props) => {
 
     return (
         <div>
-            <div>
-                <img src="https://t4.ftcdn.net/jpg/04/41/59/09/360_F_441590967_3RrToA4APjnNIUFXTgm8YzAsb2TsoXbo.jpg" alt=""/>
-            </div>
+            {/*<div>*/}
+            {/*    <img src="https://t4.ftcdn.net/jpg/04/41/59/09/360_F_441590967_3RrToA4APjnNIUFXTgm8YzAsb2TsoXbo.jpg" alt=""/>*/}
+            {/*</div>*/}
             <div className={c.descriptionBlock}>
                 <img src={props.profile.photos.small} alt=""/>
-                ava + descr
+                <h2>{props.profile.fullName}</h2>
+                <ProfileStatus status={'ewew'}/>
             </div>
+
         </div>
 
     )
