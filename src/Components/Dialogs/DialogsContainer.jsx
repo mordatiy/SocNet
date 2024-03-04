@@ -1,7 +1,7 @@
 import c from './Dialogs.module.css'
 import DialogsItem from "./DialogsItem/DialogItem";
 import Message from "./Message/Message";
-import {addMessageCreator, updateNewMessageCreator} from "../../redux/dialogs-reducer";
+import {addMessageCreator } from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import DialogsTest from "./DialogsTest";
@@ -21,12 +21,8 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     // console.log('mapDispatchToProps')
     return {
-        sendMessage: () => {
-            dispatch(addMessageCreator());
-        },
-        changeNewMessage: (txt) => {
-            //console.log(txt)
-            dispatch(updateNewMessageCreator(txt));
+        sendMessage: (newMessageBody) => {
+            dispatch(addMessageCreator(newMessageBody));
         }
     }
 }
