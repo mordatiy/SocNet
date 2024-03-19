@@ -20,7 +20,7 @@ class ProfileStatus extends React.Component {
     }
 
     activateEditMode = () => {
-        console.log("this:", this)
+        //console.log("this:", this)
         this.setState({
             editMode: true
         })
@@ -41,7 +41,7 @@ class ProfileStatus extends React.Component {
     }
 
     render() {
-        console.log("render");
+        // console.log("render");
         return (
             <div>
                 {!this.state.editMode &&

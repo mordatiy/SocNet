@@ -4,11 +4,18 @@ import Users from "./Users";
 import {
     follow,
     unfollow,
-    toggleFollowingProgress, getUsers, setCurrentPage
+    toggleFollowingProgress, requestUsers, setCurrentPage
 } from "../../redux/users-reducer";
 import Preloader from "../common/Preloader/Preloader";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {
+    getCurrentPage,
+    getFollowingInProgress,
+    getIsFetching,
+    getPageSize, getTotalUsersCount,
+    getUsers
+} from "../../redux/users-selectors";
 
 
 
@@ -20,16 +27,17 @@ class UsersContainer extends React.Component {
     }
 
     componentWillUnmount() {
-        console.log(`componentWillUnmount`)
+        // console.log(`componentWillUnmount`)
     }
 
     onPageChanged = (pageNumber) => {
-        console.log('onPageChanged')
+        // console.log('onPageChanged')
         this.props.getUsers(pageNumber, this.props.pageSize)
     }
 
 
     render() {
+        console.log('RENDER USERS');
         return <>
             { this.props.isFetching ? <Preloader /> : null }
             <Users totalUsersCount={this.props.totalUsersCount}
@@ -48,14 +56,15 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-    //console.log('dsdsd')
+    console.log('mapStateToProps USERS');
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress,
+        // users: getUsers(state),
+        users: getUsers(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getCurrentPage(state),
+        isFetching: getIsFetching(state),
+        followingInProgress: getFollowingInProgress(state),
     }
 }
 
@@ -91,6 +100,6 @@ let withRedirect = withAuthRedirect(UsersContainer);
 // export default connect(mapStateToProps,
 //     {follow, unfollow, toggleFollowingProgress, getUsers})(withRedirect);
 export default compose(
-    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers}),
-    withAuthRedirect
+    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers: requestUsers}),
+    //withAuthRedirect
 )(UsersContainer)
