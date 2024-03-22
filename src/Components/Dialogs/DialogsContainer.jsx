@@ -9,7 +9,7 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 import {getUserProfile} from "../../redux/profile-reducer";
 
-console.log('DialogsContainer')
+// console.log('DialogsContainer')
 
 let mapStateToProps = (state) => {
     // console.log('mapStateToProps')

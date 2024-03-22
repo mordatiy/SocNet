@@ -8,10 +8,11 @@ import {Textarea} from "../../common/Preloader/FormsControls/FormsConrols";
 
 const maxLength10 = maxLengthCreator(10);
 
-const MyPosts = (props) => {
-    console.log(props)
+const MyPosts = React.memo(props => {
+    // console.log("render ds");
+    // console.log(props.postsData)
 
-    let postsElements = props.postsData.map( p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/> );
+    let postsElements = [...props.postsData].reverse().map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount}/>);
 
     const onAddPost = (formData) => {
         props.addPost(formData.newPostBody)
@@ -23,12 +24,12 @@ const MyPosts = (props) => {
             <AddPostFormRedux onSubmit={onAddPost}/>
 
             <div className={c.posts}>
-                { postsElements }
+                {postsElements}
             </div>
 
         </div>
     )
-}
+});
 
 const AddNewPostForm = (props) => {
     return (

@@ -7,7 +7,6 @@ import {getAuthUserData, logout} from "../../redux/auth-reducer";
 class HeaderContainer extends React.Component {
 
     render() {
-        console.log("221")
         return (
             <Header  {...this.props} />
         );

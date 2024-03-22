@@ -15,8 +15,8 @@ const authReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case SET_USER_DATA:
-            console.log('DSDSD')
-            console.log(action.payload)
+            // console.log('DSDSD')
+            // console.log(action.payload)
             return {
                 ...state,
                 ...action.payload,

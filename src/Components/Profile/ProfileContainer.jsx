@@ -42,7 +42,7 @@ class ProfileContainer extends React.Component {
 
 
     render() {
-        //console.log("RENDER PROFILE")
+        console.log("RENDER PROFILE")
         if (this.isUserAuth) {
             return <Profile
                 {...this.props}
