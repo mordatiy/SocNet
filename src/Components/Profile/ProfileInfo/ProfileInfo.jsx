@@ -5,10 +5,10 @@ import ProfileStatus from "./ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({profile, status, updateStatus, ...props}) => {
     // console.log(props.profile);
 
-    if (!props.profile) {
+    if (!profile) {
         return (<Preloader />)
     }
 
@@ -18,9 +18,9 @@ const ProfileInfo = (props) => {
             {/*    <img src="https://t4.ftcdn.net/jpg/04/41/59/09/360_F_441590967_3RrToA4APjnNIUFXTgm8YzAsb2TsoXbo.jpg" alt=""/>*/}
             {/*</div>*/}
             <div className={c.descriptionBlock}>
-                <img src={props.profile.photos.small} alt=""/>
-                <h2>{props.profile.fullName}</h2>
-                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                <img src={profile.photos.small} alt=""/>
+                <h2>{profile.fullName}</h2>
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
             </div>
 
         </div>

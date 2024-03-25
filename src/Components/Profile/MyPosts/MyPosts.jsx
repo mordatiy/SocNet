@@ -4,7 +4,7 @@ import Post from "./Post/Post";
 import form from "redux-form/lib/Form";
 import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../utils/validators/validators";
-import {Textarea} from "../../common/Preloader/FormsControls/FormsConrols";
+import {Textarea} from "../../common/FormsControls/FormsConrols";
 
 const maxLength10 = maxLengthCreator(10);
 

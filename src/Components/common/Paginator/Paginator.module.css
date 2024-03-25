@@ -1,0 +1,10 @@
+.pageNavi {
+    margin: 5px;
+    cursor: pointer;
+}
+.selectedPage {
+    /*margin: 5px;*/
+    /*cursor: pointer;*/
+    color: green;
+    font-width: bold;
+}

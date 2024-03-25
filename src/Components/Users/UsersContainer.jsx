@@ -23,7 +23,8 @@ class UsersContainer extends React.Component {
 
     componentDidMount() {
         // console.log('componentDidMount');
-        this.props.getUsers(this.props.currentPage, this.props.pageSize)
+        let {currentPage, pageSize} = this.props;
+        this.props.getUsers(currentPage, pageSize)
     }
 
     componentWillUnmount() {
@@ -32,12 +33,13 @@ class UsersContainer extends React.Component {
 
     onPageChanged = (pageNumber) => {
         // console.log('onPageChanged')
-        this.props.getUsers(pageNumber, this.props.pageSize)
+        const {pageSize} = this.props;
+        this.props.getUsers(pageNumber, pageSize)
     }
 
 
     render() {
-        console.log('RENDER USERS');
+        // console.log('RENDER USERS');
         return <>
             { this.props.isFetching ? <Preloader /> : null }
             <Users totalUsersCount={this.props.totalUsersCount}
@@ -56,7 +58,7 @@ class UsersContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-    console.log('mapStateToProps USERS');
+    // console.log('mapStateToProps USERS');
     return {
         // users: getUsers(state),
         users: getUsers(state),
@@ -67,32 +69,6 @@ let mapStateToProps = (state) => {
         followingInProgress: getFollowingInProgress(state),
     }
 }
-
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         follow: (userID) => {
-//             dispatch(followAC(userID));
-//         },
-//         unfollow: (userID) => {
-//             dispatch(unfollowAC(userID));
-//         },
-//         setUsers: (users) => {
-//             // console.log('setUsers');
-//             dispatch(setUsersAC(users))
-//         },
-//         setCurrentPage: (pageNumber) => {
-//             dispatch(setCurrentPageAC(pageNumber))
-//         },
-//         setTotalUsersCount: (count) => {
-//             //console.log('count:' + count)
-//             dispatch(setTotalUsersCountAC(count))
-//         },
-//         toggleIsFetching: (isFetching) => {
-//             dispatch(toggleIsFetchingAC(isFetching))
-//         }
-//
-//     }
-// }
 
 
 let withRedirect = withAuthRedirect(UsersContainer);

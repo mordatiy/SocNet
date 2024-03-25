@@ -1,7 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import {Field, reduxForm} from "redux-form";
-import {Input} from "../common/Preloader/FormsControls/FormsConrols";
+import {createField, Input} from "../common/FormsControls/FormsConrols";
 import {required} from "../utils/validators/validators";
 import {login} from "../../redux/auth-reducer";
 import {Navigate} from "react-router-dom";
@@ -10,25 +10,9 @@ import {Navigate} from "react-router-dom";
 const LoginForm = (props) => {
     return (
         <form action="" onSubmit={props.handleSubmit}>
-            <div>
-                <Field
-                    placeholder={"Email"}
-                    name="email"
-                    component={Input}
-                    type="text"
-                    validate={[ required ]} />
-            </div>
-            <div>
-                <Field
-                    placeholder={"Password"}
-                    name="password"
-                    component={Input}
-                    type="password"
-                    validate={[ required ]} />
-            </div>
-            <div>
-                <Field name="rememberMe" component="input" type="checkbox" />remember me
-            </div>
+            {createField("Email", "email", [ required ], Input, {type: "text"}, "")}
+            {createField("Password", "password", [ required ], Input, {type: "password"}, "")}
+            {createField("", "rememberMe", [], Input, {type: "checkbox"}, "remember me!")}
             <div>
                 <button>Login</button>
             </div>
@@ -37,7 +21,7 @@ const LoginForm = (props) => {
 
 }
 
-const LoginReactForm = reduxForm({
+const LoginReduxForm = reduxForm({
     form: 'login'
 })(LoginForm)
 
@@ -52,7 +36,7 @@ const Login = (props) => {
     }
     return <div>
         <h1>Login</h1>
-        <LoginReactForm onSubmit={onSubmit}/>
+        <LoginReduxForm onSubmit={onSubmit}/>
     </div>
 
 }
@@ -65,16 +49,8 @@ let mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth,
     }
-    // isAuth: state.auth.isAuth
 }
 
-// let mapDispatchToProps = (dispatch) => {
-//     console.log('mapDispatchToProps')
-//     return {}
-// }
-
-// const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)
-// const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login)
 const LoginContainer = connect(mapStateToProps, {login})(Login)
 /* end trash * /
  */
