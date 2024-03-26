@@ -6,35 +6,31 @@ import reportWebVitals from './reportWebVitals';
 // import state, {addPost, subscribe, updateNewPostTxt} from './redux/state'
 // import store from './redux/store'
 import store from './redux/redux-store'
-import App from "./App";
+import App, {socialNetworkApp, AppContainer, AppContainerProvider, SocialNetworkApp} from "./App";
 import './index.css';
 import {Provider} from "react-redux";
 
-setInterval(() => {
-    store.dispatch({type: "FAKE"})
-}, 1000)
+// setInterval(() => {
+//     store.dispatch({type: "FAKE"})
+// }, 1000)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 let rerenderEntireTree = () => {
-
-    //console.log('rerenderEntireTree')
     root.render(
-        <BrowserRouter>
-            <Provider store={store}>
-                <App/>
-            </Provider>
-        </BrowserRouter>
-        // <React.StrictMode>
-        //     <BrowserRouter>
-        //         <Provider store={store}>
-        //             <App />
-        //         </Provider>
-        //     </BrowserRouter>
-        //
-        // </React.StrictMode>
+            <SocialNetworkApp />
     );
 }
+
+// let rerenderEntireTree = () => {
+//     root.render(
+//         <BrowserRouter>
+//             <Provider store={store}>
+//                 <App/>
+//             </Provider>
+//         </BrowserRouter>
+//     );
+// }
 
 rerenderEntireTree();
 
@@ -43,4 +39,4 @@ rerenderEntireTree();
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 
-//reportWebVitals();
+// reportWebVitals();

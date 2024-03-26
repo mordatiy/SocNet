@@ -1,8 +1,7 @@
 import React from "react";
+import ReactDOM from 'react-dom/client';
 import './App.css';
-import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
-import Dialogs from "./Components/Dialogs/Dialogs";
 import Messages from "./Components/Messages/Messages";
 import {BrowserRouter, Route, Routes, NavLink, useLocation, useNavigate, useParams} from "react-router-dom";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
@@ -10,10 +9,11 @@ import UsersContainer from "./Components/Users/UsersContainer";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import LoginContainer from "./Components/Login/Login";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./Components/common/Preloader/Preloader";
+import store from "./redux/redux-store";
 
 class App extends React.Component {
 
@@ -73,7 +73,36 @@ let mapStateToProps = (state) => ({
 
 
 
-export default compose(
+// export default compose(
+//     withRouter,
+//     connect(mapStateToProps, {initializeApp})
+// )(App)
+
+export const AppContainer = compose(
     withRouter,
     connect(mapStateToProps, {initializeApp})
 )(App)
+
+// export const AppContainerProvider = (props) => {
+//     return (
+//         <BrowserRouter>
+//             <Provider store={store}>
+//                 <AppContainer/>
+//             </Provider>
+//         </BrowserRouter>
+//     )
+// }
+
+export const SocialNetworkApp = (props) => {
+    //console.log("socialNetworkApp with BrowserRouter & Provider");
+    return (
+        <BrowserRouter>
+            <Provider store={store}>
+                <AppContainer/>
+            </Provider>
+        </BrowserRouter>
+    )
+}
+
+// export default SocialNetworkApp();
+

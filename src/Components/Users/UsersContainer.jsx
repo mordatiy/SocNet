@@ -20,7 +20,10 @@ import {
 
 
 class UsersContainer extends React.Component {
+    constructor() {
+        super();
 
+    }
     componentDidMount() {
         // console.log('componentDidMount');
         let {currentPage, pageSize} = this.props;

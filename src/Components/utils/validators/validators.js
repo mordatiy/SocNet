@@ -9,7 +9,7 @@ export const maxLength30 = value => {
 }
 
 export const maxLengthCreator = (maxLength) => (value) => {
-    console.log(maxLength, value.length);
+    // console.log(maxLength, value.length);
     if (value.length > maxLength) return `Max Length is ${maxLength} symblos`;
     return undefined;
 }

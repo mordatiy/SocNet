@@ -1,10 +1,38 @@
 .pageNavi {
     margin: 5px;
     cursor: pointer;
+    border: 1px solid grey;
+    padding: 0px 7px 3px;
+    border-radius: 5px;
+    color: grey;
 }
+.pageNavi:hover {
+    color: aqua;
+    border-color: aqua;
+}
+
 .selectedPage {
     /*margin: 5px;*/
     /*cursor: pointer;*/
-    color: green;
-    font-width: bold;
+    color: cornsilk;
+     /*font-width: bold;*/
+    border-color: cornsilk;
+}
+.paginator {
+    /*border:1px solid #eeeeee;*/
+    text-align: center;
+    margin: 10px 0;
+}
+.nextprev {
+    background: transparent;
+    border: 1px solid grey;
+    color: grey;
+    padding: 3px 12px 3px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+.nextprev:hover {
+    color: aqua;
+    border-color: aqua;
 }
