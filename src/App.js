@@ -96,7 +96,7 @@ export const AppContainer = compose(
 export const SocialNetworkApp = (props) => {
     //console.log("socialNetworkApp with BrowserRouter & Provider");
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Provider store={store}>
                 <AppContainer/>
             </Provider>
