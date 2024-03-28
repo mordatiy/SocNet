@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/SocNetwork/static/css/main.8ec02f12.css",
-    "main.js": "/SocNetwork/static/js/main.1fd0040e.js",
+    "main.js": "/SocNetwork/static/js/main.4ae141b4.js",
     "static/css/732.5f24c3ba.chunk.css": "/SocNetwork/static/css/732.5f24c3ba.chunk.css",
     "static/js/732.807c856d.chunk.js": "/SocNetwork/static/js/732.807c856d.chunk.js",
     "static/css/67.31d6cfe0.chunk.css": "/SocNetwork/static/css/67.31d6cfe0.chunk.css",
-    "static/js/67.b4526668.chunk.js": "/SocNetwork/static/js/67.b4526668.chunk.js",
+    "static/js/67.9d169103.chunk.js": "/SocNetwork/static/js/67.9d169103.chunk.js",
     "static/css/247.34fc0225.chunk.css": "/SocNetwork/static/css/247.34fc0225.chunk.css",
     "static/js/247.cf09a900.chunk.js": "/SocNetwork/static/js/247.cf09a900.chunk.js",
     "static/css/801.c31bd485.chunk.css": "/SocNetwork/static/css/801.c31bd485.chunk.css",
@@ -16,10 +16,10 @@
     "static/media/preloader.svg": "/SocNetwork/static/media/preloader.a952d19409d2b8c97e4e545a6050ec0e.svg",
     "index.html": "/SocNetwork/index.html",
     "main.8ec02f12.css.map": "/SocNetwork/static/css/main.8ec02f12.css.map",
-    "main.1fd0040e.js.map": "/SocNetwork/static/js/main.1fd0040e.js.map",
+    "main.4ae141b4.js.map": "/SocNetwork/static/js/main.4ae141b4.js.map",
     "732.5f24c3ba.chunk.css.map": "/SocNetwork/static/css/732.5f24c3ba.chunk.css.map",
     "732.807c856d.chunk.js.map": "/SocNetwork/static/js/732.807c856d.chunk.js.map",
-    "67.b4526668.chunk.js.map": "/SocNetwork/static/js/67.b4526668.chunk.js.map",
+    "67.9d169103.chunk.js.map": "/SocNetwork/static/js/67.9d169103.chunk.js.map",
     "247.34fc0225.chunk.css.map": "/SocNetwork/static/css/247.34fc0225.chunk.css.map",
     "247.cf09a900.chunk.js.map": "/SocNetwork/static/js/247.cf09a900.chunk.js.map",
     "801.c31bd485.chunk.css.map": "/SocNetwork/static/css/801.c31bd485.chunk.css.map",
@@ -30,6 +30,6 @@
   },
   "entrypoints": [
     "static/css/main.8ec02f12.css",
-    "static/js/main.1fd0040e.js"
+    "static/js/main.4ae141b4.js"
   ]
 }
