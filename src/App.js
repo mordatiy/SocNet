@@ -1,19 +1,35 @@
-import React from "react";
-import ReactDOM from 'react-dom/client';
+import React, { Suspense } from "react";
 import './App.css';
 import Navbar from "./Components/Navbar/Navbar";
-import Messages from "./Components/Messages/Messages";
 import {BrowserRouter, Route, Routes, NavLink, useLocation, useNavigate, useParams} from "react-router-dom";
-import DialogsContainer from "./Components/Dialogs/DialogsContainer";
-import UsersContainer from "./Components/Users/UsersContainer";
-import ProfileContainer from "./Components/Profile/ProfileContainer";
-import HeaderContainer from "./Components/Header/HeaderContainer";
-import LoginContainer from "./Components/Login/Login";
+
+
 import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./Components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
+
+
+// import DialogsContainer from "./Components/Dialogs/DialogsContainer";
+// import Messages from "./Components/Messages/Messages";
+// import UsersContainer from "./Components/Users/UsersContainer";
+// import ProfileContainer from "./Components/Profile/ProfileContainer";
+import HeaderContainer from "./Components/Header/HeaderContainer";
+import {withSuspense} from "./hoc/withSuspense";
+// import LoginContainer from "./Components/Login/Login";
+
+
+//const Messages = React.lazy(() => import('./Components/Messages/Messages'));
+// const DialogsContainer = React.lazy(() => import('./Components/Dialogs/DialogsContainer'));
+const DialogsContainer = withSuspense(React.lazy(() => import('./Components/Dialogs/DialogsContainer')));
+const Messages = withSuspense(React.lazy(() => import('./Components/Messages/Messages')));
+
+const UsersContainer = React.lazy(() => import('./Components/Users/UsersContainer'));
+const ProfileContainer = React.lazy(() => import('./Components/Profile/ProfileContainer'));
+const LoginContainer = React.lazy(() => import('./Components/Login/Login'));
+
+
 
 class App extends React.Component {
 
@@ -35,11 +51,12 @@ class App extends React.Component {
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Routes basename="/">
-                        <Route path="/" element={<ProfileContainer/>}/>
-                        <Route path="/profile/:userId?/*" element={<ProfileContainer/>}/>
-                        <Route path="/dialogs/*" element={<DialogsContainer/>}/>
-                        <Route path="/messages/" element={<Messages/>}/>
-                        <Route path="/users/" element={<UsersContainer/>}/>
+                        <Route path="/" element={<Suspense fallback={<Preloader />}><ProfileContainer/></Suspense>}/>
+                        <Route path="/profile/:userId?/*" element={<Suspense fallback={<Preloader />}><ProfileContainer/></Suspense>}/>
+                        <Route path="/dialogs/*" element={<DialogsContainer/>} />
+                        <Route path="/messages/" element={<Messages />} />
+                        <Route path="/users/" element={<Suspense fallback={<Preloader />}><UsersContainer/></Suspense>}/>
+
                         <Route path="/login/" element={<LoginContainer/>}/>
                     </Routes>
                 </div>
@@ -71,27 +88,10 @@ let mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
 });
 
-
-
-// export default compose(
-//     withRouter,
-//     connect(mapStateToProps, {initializeApp})
-// )(App)
-
 export const AppContainer = compose(
     withRouter,
     connect(mapStateToProps, {initializeApp})
 )(App)
-
-// export const AppContainerProvider = (props) => {
-//     return (
-//         <BrowserRouter>
-//             <Provider store={store}>
-//                 <AppContainer/>
-//             </Provider>
-//         </BrowserRouter>
-//     )
-// }
 
 export const SocialNetworkApp = (props) => {
     //console.log("socialNetworkApp with BrowserRouter & Provider");
