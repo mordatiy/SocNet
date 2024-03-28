@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/670.82cee261.chunk.css","mappings":"AAAA,qIAEI,oBACJ,CAEA,gEACI,SACJ","sources":["Components/common/FormsControls/FormsConrols.module.css"],"sourcesContent":[".formControl.error input,\r\n.formControl.error textarea {\r\n    border:3px solid red;\r\n}\r\n\r\n.formControl.error span {\r\n    color: red;\r\n}\r\n\r\n"],"names":[],"sourceRoot":""}
