@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import './App.css';
 import Navbar from "./Components/Navbar/Navbar";
-import {BrowserRouter, Route, Routes, NavLink, useLocation, useNavigate, useParams} from "react-router-dom";
+import {BrowserRouter, Route, Routes, NavLink, useLocation, useNavigate, useParams, HashRouter} from "react-router-dom";
 
 
 import {connect, Provider} from "react-redux";
@@ -96,11 +96,11 @@ export const AppContainer = compose(
 export const SocialNetworkApp = (props) => {
     //console.log("socialNetworkApp with BrowserRouter & Provider");
     return (
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <HashRouter basename={"/"}>
             <Provider store={store}>
                 <AppContainer/>
             </Provider>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
