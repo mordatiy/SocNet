@@ -96,7 +96,12 @@ export const AppContainer = compose(
 export const SocialNetworkApp = (props) => {
     //console.log("socialNetworkApp with BrowserRouter & Provider");
     return (
-        <HashRouter basename={"/"}>
+        // <BrowserRouter basename={"/"}>
+        //     <Provider store={store}>
+        //         <AppContainer/>
+        //     </Provider>
+        // </BrowserRouter>
+        <HashRouter>
             <Provider store={store}>
                 <AppContainer/>
             </Provider>
