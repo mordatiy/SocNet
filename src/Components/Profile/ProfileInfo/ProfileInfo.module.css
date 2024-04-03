@@ -1,3 +1,7 @@
 .descriptionBlock {
     margin: 10px 20px;
 }
+
+.mainPhoto {
+    max-width: 150px;
+}
