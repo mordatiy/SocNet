@@ -13,6 +13,9 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 import LoginContainer from "../Login/Login";
 
+
+console.log('ProfileContainer');
+
 class ProfileContainer extends React.Component {
     constructor() {
         super();

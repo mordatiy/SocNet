@@ -17,12 +17,11 @@ import {
     getUsers
 } from "../../redux/users-selectors";
 
-
+console.log('USERS');
 
 class UsersContainer extends React.Component {
     constructor() {
         super();
-
     }
     componentDidMount() {
         // console.log('componentDidMount');
