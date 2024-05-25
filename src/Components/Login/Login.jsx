@@ -8,6 +8,7 @@ import {Navigate} from "react-router-dom";
 
 
 const LoginForm = (props) => {
+    // console.log(props)
     return (
         <form action="" onSubmit={props.handleSubmit}>
             {createField("Email", "email", [ required ], Input, {type: "text"}, "")}
