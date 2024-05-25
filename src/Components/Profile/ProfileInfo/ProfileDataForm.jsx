@@ -4,11 +4,12 @@ import {reduxForm} from "redux-form";
 import {createField, Input, Textarea} from "../../common/FormsControls/FormsConrols";
 import {required} from "../../utils/validators/validators";
 
-const ProfileDataForm = ({handleSubmit, profile, ...props}) => {
+const ProfileDataForm = ({handleSubmit, profile, error}) => {
 
     return <form action="" onSubmit={handleSubmit}>
         <div><button onClick={ ()=> {} } >Save</button></div>
         {/*<h2>{profile.fullName}</h2>*/ }
+        {error && <div className={s.mainError}>{error}</div> }
         <div>
             <b>Full Name: </b>
             {createField("FullName", "fullName", [ required ], Input, {type: "text"}, "" )}

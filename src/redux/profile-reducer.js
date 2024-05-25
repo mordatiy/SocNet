@@ -120,7 +120,9 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
         // errorMessage = "bad!"
         console.log(errorMessage)
         dispatch(stopSubmit("edit-profile", {"contacts": {"facebook": errorMessage}}));
+        // Parsing error and :
         // dispatch(stopSubmit("edit-profile", {_error: errorMessage}));
+        return Promise.reject("Failure: The promise has failed!");
     }
 }
 
