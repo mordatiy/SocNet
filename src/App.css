@@ -11,10 +11,10 @@
 
 .app-wrapper-content {
   grid-area: c;
-  background-color: blue;
+  background-color: #ceceff;
 }
 
 .content {
   grid-area: c;
-  background-color: blue;
+  background-color: #ceceff;
 }
