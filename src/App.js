@@ -12,8 +12,6 @@ import Preloader from "./Components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
 
 
-// import Messages from "./Components/Messages/Messages";
-// import UsersContainer from "./Components/Users/UsersContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
 import {withSuspense} from "./hoc/withSuspense";
 
@@ -64,7 +62,9 @@ class App extends React.Component {
                         <Route path="/users/" element={<UsersContainer />} />
                         {/*<Route path="/users/" element={<Suspense fallback={<Preloader />}><UsersContainer/></Suspense>}/>*/}
                         {/*end use withSuspense HOC: */}
+                        <Route path="/login/facebook" element={<Messages />} />
                         <Route path="/login/" element={<LoginContainer/>}/>
+                        <Route path="*" element={<Page404/>}/>
                     </Routes>
 
                     {/*work1*/}
@@ -82,6 +82,12 @@ class App extends React.Component {
         );
     }
 }
+
+const Page404 = () => {
+    return <div><h1>404 NOT FOUND</h1></div>
+}
+
+
 
 function withRouter(Component) {
     function ComponentWithRouterProp(props) {
